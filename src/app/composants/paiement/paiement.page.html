@@ -1,0 +1,88 @@
+<!-- <ion-header class="ion-no-border">
+  <ion-item lines="none">
+   <ion-button class="topup" fill="clear" slot="start" color="light">
+      <ion-back-button defaultHref="/"></ion-back-button>
+   </ion-button>
+   <ion-title>Paiment</ion-title>
+  </ion-item>
+</ion-header> -->
+
+<!--<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">paiement</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content> -->
+
+<ion-header class="ion-no-border">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button fill="clear" size="medium" (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Paiment</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" color="dark">
+
+  <ion-segment class="choix" [(ngModel)]="selectedSegment">
+    <ion-segment-button value="factures">
+     <span>Factures</span>
+    </ion-segment-button>
+    <ion-segment-button value="marchands">
+      <span>Marchands</span>
+    </ion-segment-button>
+  </ion-segment><br>
+
+  <!-- Grid of Items -->
+  <div *ngIf="selectedSegment === 'factures'" color="dark">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size-md="3" *ngFor="let facture of factures">
+          <ion-card class="item-card">
+            <a class="no-decoration" href="paiement/{{facture.id}}">
+              <img src="{{facture.image}}" />
+              <ion-card-content>
+                <ion-label>{{facture.name}}</ion-label>
+              </ion-card-content>
+            </a>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="selectedSegment === 'marchands'">
+    <!-- Barre de recherche -->
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems()"></ion-searchbar>
+
+    <!-- Conteneur défilant pour les catégories -->
+    <ion-segment scrollable [(ngModel)]="selectedCategory" (ionChange)="filterItems()">
+      <ion-segment-button
+      value="all"
+      [ngClass]="{'category': true, 'active-cat': selectedCategory === 'all' }">
+       <span>Tous</span>
+      </ion-segment-button>
+      <ion-segment-button
+      *ngFor="let category of categories"
+      [value]="category"
+      [ngClass]="{'category': true, 'active-cat': selectedCategory === category }">
+        <span>{{ category }}</span>
+      </ion-segment-button>
+    </ion-segment><br>
+
+    <!-- Liste des marchands filtrés -->
+    <ion-list class="marchand-list" lines="none">
+      <ion-item class="marchand-items" *ngFor="let marchand of filteredMarchands">
+        <div class="circle-icon">
+          <ion-icon name="cart-outline"></ion-icon>
+        </div>
+        <ion-label>{{ marchand.nom }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+</ion-content>
+

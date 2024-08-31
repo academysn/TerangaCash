@@ -1,0 +1,92 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button fill="clear" size="medium" (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>QR & Paiement marchand</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-no-background">
+  <ion-segment [(ngModel)]="selectedSegment">
+    <ion-segment-button value="qr-scanner">
+      <ion-label>Paiement</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="galerie">
+      <ion-label>Galerie</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="ma-carte-qr">
+      <ion-label>Ma carte QR</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectedSegment === 'qr-scanner'">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" class="scan">
+          <ion-card>
+            <ion-img></ion-img>
+          </ion-card>
+          <ion-button expand="block" (click)="ShowHide()">
+            <ion-icon slot="start" name="home"></ion-icon>
+            Code marchand
+          </ion-button>
+        </ion-col>
+        <ion-col size="12" class="code hide">
+          <ion-button expand="block" fill="outline" (click)="ShowHide()">
+            <ion-icon slot="start" name="qr-code-outline"></ion-icon>
+            Scanner
+          </ion-button>
+          <div class="divider">
+            <span>Ou</span>
+          </div>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">
+                <div class="code-content">
+                  <h4><ion-icon name="qr-code-outline"></ion-icon> Entrer un code marchand</h4>
+                  <div class="sama-input">
+                    <ion-input color="warning" type="number"  placeholder="Entrer un code marchand"></ion-input>
+                  </div>
+                </div>
+              </ion-col>
+              <ion-col size="12">
+                <div class="code-content">
+                  <h4><ion-icon name="swap-vertical-outline"></ion-icon> Montant à payer</h4>
+                  <div class="sama-input">
+                    <ion-input color="warning" type="number" placeholder="Montant"></ion-input>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="selectedSegment === 'galerie'">
+
+  </div>
+  <div *ngIf="selectedSegment === 'ma-carte-qr'">
+    <ion-card class="qr-card">
+      <img src="assets/images/qr.jpg" alt="QR Code" />
+    </ion-card>
+  
+    <div class="divider">
+      <span>Ou</span>
+    </div>
+
+  <ion-button expand="block" fill="outline" (click)="goToQrScanner()">
+    <ion-icon slot="start" name="qr-code-outline"></ion-icon>
+    Scanner
+  </ion-button>
+  </div>
+
+</ion-content>
+
+<ion-footer class="fixed-footer">
+  <ion-button class="ion-no-background" expand="block" fill="clear" (click)="goBack()">Fermer</ion-button>
+</ion-footer>

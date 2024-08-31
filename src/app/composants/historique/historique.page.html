@@ -1,0 +1,93 @@
+<ion-content class="ion-padding" color="dark">
+  <!-- Barre de recherche -->
+  <ion-searchbar [(ngModel)]="searchText" (ionInput)="filterTransactions()" placeholder="Rechercher"></ion-searchbar>
+
+  <!-- Sélecteur de type de transaction -->
+  <ion-list class="ion-no-background">
+    <ion-item class="history-select item-lines-none">
+      <ion-select [(ngModel)]="selectedTransactionType" (ionChange)="filterTransactions()" label="Type de transaction" placeholder="Type">
+        <ion-select-option value="Tout">Tout</ion-select-option>
+        <ion-select-option *ngFor="let transaction of uniqueDescriptions" [value]="transaction">{{ transaction }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div>
+    <div class="history-date">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <!-- Sélecteur de date de début -->
+            <ion-item class="debut item-lines-none">
+              <ion-label>Debut</ion-label>
+              <ion-input [value]="formatDate(selectedDateDebut)" display-format="MMM DD, YYYY" readonly (click)="showDatePickerDebut()"></ion-input>
+            </ion-item>
+          
+            <!-- Hidden Date Picker -->
+            <ion-datetime
+              presentation="date" [preferWheel]="true"
+              *ngIf="showPickerDebut"
+              display-format="MMM DD, YYYY"
+              [(ngModel)]="selectedDateDebut"
+              (ionChange)="onDateDebutChange($event)">
+            </ion-datetime>
+          </ion-col>
+          <ion-col size="12">
+            <!-- Sélecteur de date de fin -->
+            <ion-item class="fin item-lines-none">
+              <ion-label>Fin</ion-label>
+              <ion-input [value]="formatDate(selectedDateFin)" readonly (click)="showDatePickerFin()"></ion-input>
+            </ion-item>
+          
+            <!-- Hidden Date Picker -->
+            <ion-datetime
+              presentation="date" [preferWheel]="true"
+              *ngIf="showPickerFin"
+              [(ngModel)]="selectedDateFin"
+              (ionChange)="onDateFinChange($event)">
+            </ion-datetime>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </div>
+  </div><br>
+
+  <!-- Liste des transactions filtrées -->
+  <ion-list lines="none" class="ion-no-background">
+    <ng-container *ngFor="let transaction of filteredTransactions; let i = index">
+      <ion-item-divider class="date-diviseur" *ngIf="i === 0 || filteredTransactions[i - 1].date !== transaction.date" color="dark">
+        <ion-label>{{ transaction.date }}</ion-label>
+      </ion-item-divider>
+      <ion-item class="history-item">
+        <div class="left">
+          <ion-label>
+            <h2>{{ transaction.description }}</h2>
+            <h6>{{ transaction.detail }}</h6>
+          </ion-label>
+        </div>
+        <div class="right">
+          <ion-note slot="end" [color]="transaction.color">{{ transaction.amount }}</ion-note>
+          <ion-label><h6>00:21</h6></ion-label>
+        </div>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <!-- Footer avec boutons -->
+  <ion-footer class="fixed-footer no-background">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-button expand="block" fill="clear" class="white-border-btn" (click)="goBack()">Fermer</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="block" fill="clear" class="white-border-btn" (click)="resetFilters()">Reset</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="block" fill="clear" class="primary-btn" (click)="recherche()">Rechercher</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+</ion-content>
+

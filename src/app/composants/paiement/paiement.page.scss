@@ -1,0 +1,113 @@
+ion-grid {
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+  
+  ion-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  ion-col {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .item-card {
+    background: none;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Assure que le contenu est espacé correctement */
+    height: 100%; /* Remplit la hauteur disponible du ion-col */
+    min-width: 78px;
+    border: 1px solid white;
+  }
+  
+  ion-card-content {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  img {
+    max-width: 60%;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
+
+  ion-searchbar {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: white;
+    background: none;
+    // Style général du ion-searchbar
+    --placeholder-color: gray; // Rouge, remplacez par la couleur désirée
+    // Pour les styles de placeholder spécifiques
+      .searchbar-input {
+        --placeholder-color: gray;
+        background: none;
+      }
+  }
+  ion-item {
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+
+  .circle-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ff9800;
+    color: #fff;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-right: 10px;
+    text-align: center;
+    border: 2px solid #ff9800;
+  }
+
+  .choix{
+    border: 2px solid #ff6600;
+  }
+
+  .category {
+      color: white;
+      flex: 00 auto;
+      margin-right: 10px;
+      border: 1px solid white ;
+      margin-top: 10px;
+  }
+
+  ion-segment{
+    --background: none;
+    ion-segment-button{
+      --color-checked: #fff;
+      --background-checked: #ff6600;
+      --indicator-color: none;
+      color: #fff;
+      position: relative;
+    }
+  }
+
+  .category span {
+      font-size: 12px;
+      margin-top: 4px;
+  }
+  .marchand-list{
+    background: none;
+    --color: black;
+  }
+  .marchand-items {
+    --background: #222428;
+    color: #fff;
+    display: flex;
+    justify-content: space-between; /* Distribute space between left and right */
+    align-items: center; /* Vertically center items if needed */
+  }

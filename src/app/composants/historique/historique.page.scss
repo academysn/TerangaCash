@@ -1,0 +1,106 @@
+ion-content {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding-bottom: 70px; /* Adjust based on footer height */
+}
+
+ion-searchbar {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  // Style général du ion-searchbar
+  --placeholder-color: gray; // Rouge, remplacez par la couleur désirée
+  // Pour les styles de placeholder spécifiques
+    .searchbar-input {
+      --placeholder-color: gray;
+    }
+}
+
+ion-select{
+  --background: none;
+}
+
+
+.history-select {
+  --background: none;
+  color: #fff;
+border: 1px solid grey;
+}
+.history-select ion-select {
+  --background: none;
+  color: #fff;
+  border-bottom: none;
+}
+.history-item {
+  --background: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between; /* Distribute space between left and right */
+  align-items: center; /* Vertically center items if needed */
+}
+
+.history-item .left {
+  flex: 1;
+  text-align: left;
+}
+
+.history-item .right {
+  text-align: right;
+}
+
+.history-date {
+  --background: none;
+  color: #fff;
+  display: flex;
+  justify-content: space-between; /* Distribute space between left and right */
+  align-items: center; /* Vertically center items if needed */
+}
+
+.history-date .debut ,
+.history-date .fin {
+  border: 1px solid #fff;
+  color: grey;
+  border-radius: 5px;
+  --background: none;
+  text-align: right;
+}
+
+
+.bottom-border{
+  border-bottom: 3px solid white;
+}
+
+.ion-no-background{
+  background: none !important;
+}
+
+.ion-no-shadow{
+  box-shadow: none !important;
+}
+
+.c-white{
+  color: white;
+}
+
+ion-list{
+    padding-bottom: 70px; /* Adjust based on footer height */
+}
+
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+  } 
+
+ion-note {
+  font-size: 1.1em;
+}
+
+.date-diviseur{
+  margin-top: 15px;
+}

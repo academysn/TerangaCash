@@ -1,0 +1,177 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>boutique</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">boutique</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content> -->
+
+
+<!-- imports: [IonicModule, CommonModule, FormsModule],//SwiperModule
+schemas: [CUSTOM_ELEMENTS_SCHEMA] -->
+
+
+<!-- <ion-content>
+  <div>
+    <div class="head">
+      <div class="sama-input">
+        <ion-input placeholder="Que cherchez-vous ?"></ion-input>
+      </div>
+        <ion-icon name="person-circle" slot="end"></ion-icon>
+    </div>
+
+    <div class="back">
+      <div class="scroll-container">
+        <img *ngFor="let image of images" [src]="image" />
+      </div>
+
+      <div class="dots">
+        <div *ngFor="let image of images; let i = index" 
+            [class.active]="i === activeIndex">
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content> -->
+
+
+  <!-- <div class="div">
+    <swiper-container class="swiper-container"
+      [slidesPerView]="1.2"
+      [spaceBetween]="20"
+      [initialSlide]="1"
+      [centeredSlides]="true"
+      [pagination]="{clickable: true, dynamicBullets: true}">
+      <swiper-slide  class="swiper-slide" *ngFor="let image of bannerImages">
+        <img [src]="image" />
+      </swiper-slide>
+    </swiper-container>
+  </div> -->
+  
+<!-- <ion-row>
+  <div class="div">
+    <swiper-container
+      class="swiper-container"
+      [slidesPerView]="1"
+      [spaceBetween]="20"
+      [initialSlide]="1"
+      [centeredSlides]="true"
+      [pagination]="{ clickable: true, dynamicBullets: true }"
+      [loop]="true"
+      [autoplay]="{ delay: 3000, disableOnInteraction: false }">
+      <swiper-slide class="swiper-slide" *ngFor="let image of bannerImages">
+        <img [src]="image" />
+      </swiper-slide>
+    </swiper-container>
+  </div>
+</ion-row> -->
+  
+
+
+
+  <ion-content>
+    <div class="scrollable">
+    <!-- Partie "Tous Accessoires Mobile..." -->
+    <ion-segment scrollable [(ngModel)]="selectedCategory">
+      <ion-segment-button value="Tout" class="categorie" [class.active]="selectedCategory === 'Tout'">Tout</ion-segment-button>
+      <ion-segment-button value="Accessoires" class="categorie" [class.active]="selectedCategory === 'Accessoires'">Accessoires</ion-segment-button>
+      <ion-segment-button value="cat1" class="categorie" [class.active]="selectedCategory === 'cat1'">Mobile</ion-segment-button>
+      <ion-segment-button value="cat1" class="categorie" [class.active]="selectedCategory === 'cat1'">Internet et fibre</ion-segment-button>
+      <ion-segment-button value="cat1" class="categorie" [class.active]="selectedCategory === 'cat1'">Electromenager</ion-segment-button>
+      <ion-segment-button value="cat1" class="categorie" [class.active]="selectedCategory === 'cat1'">Evoucher</ion-segment-button>
+    </ion-segment>
+
+    <ion-segment scrollable>
+      <ion-segment-button class="marque" color="primary">X</ion-segment-button>
+      <ion-segment-button class="marque" color="light">Accessoires</ion-segment-button>
+      <ion-segment-button class="marque" color="light">Mobile</ion-segment-button>
+      <ion-segment-button class="marque" color="light">Internet et fibre</ion-segment-button>
+      <ion-segment-button class="marque" color="light">Internet et fibre</ion-segment-button>
+      <ion-segment-button class="marque" color="light">Internet et fibre</ion-segment-button>
+    </ion-segment>
+    </div>
+
+    <!-- Partie "Samsung Tecno Apple..." -->
+    <!-- <div class="scrollable" style="margin-top: 20px;">
+      <ion-chip class="scrollable-item" color="dark">Samsung</ion-chip>
+      <ion-chip class="scrollable-item" color="dark">Tecno</ion-chip>
+      <ion-chip class="scrollable-item" color="dark">Apple</ion-chip>
+      <ion-chip class="scrollable-item" color="dark">Alcatel</ion-chip>
+      <ion-chip class="scrollable-item" color="dark">Oraimo</ion-chip>
+      <ion-chip class="scrollable-item" color="dark">TCL</ion-chip>
+      <ion-chip class="scrollable-item" color="dark">Puma</ion-chip>
+    </div> -->
+    <!-- Liste des produits -->
+    <ion-list class="no-background" style="margin-top: 20px;">
+      <ion-row>
+        <!--*ngFor="let product of products"-->
+        <ion-col size="6">
+          <ion-button expand="block" class="card-button">
+            <div class="icon-label">
+              <img src="assets/images/aquatech.png"/>
+              <ion-label>Paiement</ion-label>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-card class="card-shop">
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="assets/images/aquatech.png"/>
+              </ion-thumbnail>
+              <ion-label>
+                <h2>501</h2>
+                <p>24 000 CFA</p>
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="card-shop">
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="assets/images/aquatech.png"/>
+              </ion-thumbnail>
+              <ion-label>
+                <h2>501</h2>
+                <p>24 000 CFA</p>
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="card-shop">
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="assets/images/aquatech.png"/>
+              </ion-thumbnail>
+              <ion-label>
+                <h2>501</h2>
+                <p>24 000 CFA</p>
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="card-shop">
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="assets/images/aquatech.png"/>
+              </ion-thumbnail>
+              <ion-label>
+                <h2>501</h2>
+                <p>24 000 CFA</p>
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-list>
+</ion-content>

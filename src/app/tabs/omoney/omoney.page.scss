@@ -1,0 +1,303 @@
+// .ios {
+//     ion-searchbar {
+//         margin-top: 1rem;
+//     }
+// }
+
+// ion-content {
+//     ion-list {
+//         ion-item {
+//             letter-spacing: 0.5px;
+//             ion-thumbnail {
+//                 width: 12vh;
+//                 height: 12vh;
+//             }
+//             ion-label {
+//                 font-size: 1rem;
+//                 font-weight: bold;
+//                 ion-text {
+//                     margin-bottom: 0.3vh;
+//                 }
+//                 p {
+//                     padding-top: 0.1vh;
+//                     font-weight: 450;
+//                     font-size: 0.8rem;
+//                     color: gray;
+//                     ion-icon {
+//                         font-size: 1.8vh;
+//                         vertical-align: middle;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+ion-header {
+  --background: #222;
+  color: #fff;
+}
+
+ion-toolbar {
+  --background: #222;
+  --color: #fff;
+}
+
+ion-content {
+  --background: #222;
+}
+
+.argent {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: #361d06;
+}
+.salaire.hide {
+  display: none;
+}
+.salaire {
+  border-top: 1px solid grey;
+  background: #361d06;
+  padding: 5px; /* Pour créer de l'espace autour de .salaire-content */
+}
+
+.salaire-content {
+  background: #49290a;
+  border-radius: 15px;
+}
+    
+.historique {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: #4b341e;
+}
+.sargal {
+  border-radius: 15px;
+  background: #4b341e;
+}
+
+.historique, .sargal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.full-width-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  color: #fff;
+}
+
+.historique  .card-section ,.sargal .card-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.text-left {
+  text-align: left;
+}
+h6 {
+  margin: 0;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h5 {
+  margin: 0;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn{
+  color: #ff9800;
+}
+.btn-white{
+  color: #fff;
+}
+
+
+.welcome-text {
+  padding: 16px;
+  color: #fff;
+  background: #222;
+}
+
+.circle-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #444;
+  color: #fff;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid #ff9800;
+}
+
+.circle-icon span {
+  font-size: 12px;
+  margin-top: 4px;
+ }
+
+.main-card {
+  --background: none;
+  color: #fff;
+  margin: 16px;
+  box-shadow: none;
+}
+
+.card-section {
+  text-align: left;
+  padding-left: 5%;
+}
+
+.card-section h3 {
+  margin: 8px 0 4px 0;
+  font-size: 16px;
+}
+.card-section ion-button {
+  --color: #ff9800;
+  --background: transparent;
+}
+
+.card-section p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  color: #fff;
+}
+
+.customize-button {
+  --color: #ff9800;
+  --background: transparent;
+}
+
+.big-card-button {
+  --background: none;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  text-align: center;
+  margin: 8px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.favorite-button {
+  --background: none;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  text-align: center;
+  margin: 8px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* S'assure que le texte occupe toute la largeur disponible */
+}
+.img{
+  max-width: 50%;
+}
+
+.big-card-button ion-icon {
+  margin-bottom: 4px;
+  font-size: 24px;
+}
+
+.big-card-button ion-label {
+  font-size: 14px;
+  white-space: normal; /* Permet au texte de passer à la ligne */
+  text-align: center;
+  display: block; /* Assure que le texte prend toute la largeur disponible */
+  word-wrap: break-word; /* Permet de couper les mots si nécessaire */
+}
+
+.favorite-button ion-icon {
+  margin-bottom: 4px;
+  font-size: 24px;
+}
+
+.favorite-button ion-label {
+  font-size: 14px;
+  white-space: normal; /* Permet au texte de passer à la ligne */
+  text-align: center;
+  display: block; /* Assure que le texte prend toute la largeur disponible */
+  word-wrap: break-word; /* Permet de couper les mots si nécessaire */
+}
+
+
+ion-tab-bar {
+  --background: #222;
+  --color-selected: #ff9800;
+  --color: #fff;
+}
+
+.grouped-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.left-section {
+  margin-right: auto; /* Aligner le premier élément à gauche */
+}
+
+.right-section {
+  display: flex;
+  gap: 4px; /* Espacement entre les boutons de droite */
+  margin-left: auto; /* Aligner les autres éléments à droite */
+}
+
+// .grouped-card .card-section {
+//   display: flex;
+//   align-items: center;
+// }
+
+.full-width-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.full-width-button .left-section {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacement entre les éléments de gauche */
+}
+
+.full-width-button .right-section {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacement entre les éléments de droite */
+}

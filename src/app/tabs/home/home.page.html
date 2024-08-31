@@ -1,0 +1,220 @@
+<div class="ion-page" #page>
+<app-explore-container></app-explore-container>
+
+<ion-content>
+    <div class="welcome-text">
+      <h2>Bonjour IBRAHIMA</h2>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <div class="circle-icon">
+            <ion-icon name="phone-portrait-outline"></ion-icon>
+            <span>Shop</span>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="circle-icon">
+            <ion-icon name="planet-outline"></ion-icon>
+            <span>New</span>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="circle-icon">
+            <ion-icon name="cash-outline"></ion-icon>
+            <span>Money</span>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="circle-icon">
+            <ion-icon name="gift-outline"></ion-icon>
+            <span>Promo</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card class="main-card">
+      <ion-grid>
+        <ion-row class="argent-credit">
+          <ion-col size="6" class="right-border">
+            <ion-row>
+              <ion-col size="12">
+                <ion-button fill="clear" expand="block" class="grouped-card btn" (click)="toggleSalaire()">
+                  <div class="left-section">
+                    <ion-button class="btn" fill="clear" size="small"><ion-icon name="swap-vertical-outline"></ion-icon></ion-button>
+                  </div>
+                  <div class="right-section">
+                    <ion-button class="btn" fill="clear" size="small"><ion-icon name="eye-off-outline"></ion-icon></ion-button>
+                    <ion-button class="btn" fill="clear" size="small"><ion-icon name="caret-down-outline"></ion-icon></ion-button>
+                  </div>
+                </ion-button>
+              </ion-col>                      
+              <ion-col size="12">
+                <div class="card-section">
+                  <h3>Principal</h3>
+                  <p>- - -</p>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+
+          <ion-col size="6" class="left-border">
+            <ion-row>
+              <ion-col size="12">
+                <ion-button fill="clear" expand="block" class="grouped-card btn">
+                  <div class="left-section">
+                    <ion-button class="btn" fill="clear" size="small"><ion-icon name="call-outline"></ion-icon></ion-button>
+                  </div>
+                  <div class="right-section">
+                    <ion-button class="btn" fill="clear" size="small"><ion-icon name="eye-off-outline"></ion-icon></ion-button>
+                    <ion-button class="btn" fill="clear" size="small"><ion-icon name="caret-down-outline"></ion-icon></ion-button>
+                  </div>
+                </ion-button>
+              </ion-col> 
+              <ion-col size="12">
+                <div class="card-section">
+                  <h3>Crédit recharge</h3>
+                  <p>- - -</p>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row class="salaire hide">
+          <ion-col size="12" class="salaire-content">
+            <div class="card-section">
+              <h3>Salaire</h3>
+              <h4>0 CFA</h4>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="historique">
+          <ion-button fill="clear" expand="block" class="full-width-button" (click)="goToHistorique()">
+            <div class="left-section">
+              <ion-icon name="time-outline"></ion-icon>
+              <h6>Historique Transactions</h6>
+            </div>
+            <div class="right-section">
+              <h6 class="btn">Accéder</h6> <ion-icon class="btn" name="caret-forward-outline"></ion-icon>
+            </div>
+          </ion-button>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <ion-card class="main-card">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-row class="sargal">
+              <ion-button fill="clear" expand="block" class="full-width-button">
+                <div class="left-section">
+                  <ion-icon name="gift-outline"></ion-icon>
+                  <h5>Sargal 165 Pts</h5>
+                </div>
+                <div class="right-section">
+                  <ion-button class="btn" fill="clear" size="small"><ion-icon name="eye-off-outline"></ion-icon></ion-button>
+                  <ion-button class="btn" fill="clear" size="small"><ion-icon name="caret-forward-outline"></ion-icon></ion-button>
+                </div>
+              </ion-button>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+
+
+    <div class="section-title">
+      <h4>Mes favoris</h4>
+      <ion-button fill="clear" id="open-service" size="small" class="customize-button">Personnaliser <ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" *ngFor="let servicesFavori of servicesFavoris">
+          <ion-button expand="block" class="card-button color-icon" 
+            [id]="servicesFavori.name === 'Activer ma carte' ? 'open-carte' : null"
+            (click)="handleServiceFavorisAction(servicesFavori)">
+            <div class="icon-label">
+              <ion-icon name="receipt-outline"></ion-icon>
+              <ion-label>{{servicesFavori.name}}</ion-label>
+            </div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-modal #modal trigger="open-service" [canDismiss]="canDismiss" [presentingElement]="page">
+      <ng-template>
+        <ion-header class="ion-no-border bottom-border">
+          <ion-toolbar color="dark">
+            <ion-buttons slot="start">
+              <ion-button fill="clear" size="medium" (click)="modal.dismiss()">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+            <ion-title>Choisissez vos favoris</ion-title>
+            <ion-title slot="end">0/4</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="modal">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" *ngFor="let service of services">
+                <ion-button expand="block" class="card-button color-icon"
+                  [id]="service.name === 'Activer ma carte' ? 'open-carte' : null"
+                  (click)="handleServiceAction(service)">
+                  <div class="icon-label">
+                    <ion-icon name="receipt-outline"></ion-icon>
+                    <ion-label>{{service.name}}</ion-label>
+                  </div>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-content>
+        <ion-footer class="fixed-footer">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <ion-button expand="block" fill="clear" class="white-border-btn" (click)="modal.dismiss()">Fermer</ion-button>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button expand="block" fill="clear" class="primary-btn" desabled>Rechercher</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-footer>
+      </ng-template>
+    </ion-modal>
+    
+    <ion-modal #carte trigger="open-carte" [canDismiss]="canDismiss" [presentingElement]="page"
+      [initialBreakpoint]="0.5"[breakpoints]="[0, 0.25, 0.5, 0.75]">
+      <ng-template>
+        <ion-content>
+          <ion-card class="no-background no-box-shadow ion-no-border text-center border-radius">
+            <ion-card-content>
+              <img src="assets/images/nocarte.png" alt="" />
+            </ion-card-content>
+            <ion-card-content class="white-text">
+              Vous n'avez pas une carte en cours d'activation.
+            </ion-card-content>
+            <ion-card-content>
+              <ion-button expand="block" fill="clear" class="alert-button white-border-btn" (click)="carte.dismiss()">
+                Fermer
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+    
+  </ion-content>
+</div>

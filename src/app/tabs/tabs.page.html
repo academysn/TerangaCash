@@ -1,0 +1,28 @@
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab($event)">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" [ngClass]="{'selected': selectedTab == 'home'}">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Accueil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="omoney" [ngClass]="{'selected': selectedTab == 'omoney'}">
+      <ion-icon name="cash-outline"></ion-icon>
+      <ion-label>Orange Money</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="ligne" [ngClass]="{'selected': selectedTab == 'ligne'}">
+      <ion-icon name="document-outline"></ion-icon>
+      <ion-label>Ma ligne</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="boutique" [ngClass]="{'selected': selectedTab == 'boutique'}">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-label>Boutique</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="scanner" [ngClass]="{'selected': selectedTab === 'scanner'}">
+      <ion-icon name="qr-code-outline"></ion-icon>
+      <ion-label>Scanner</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

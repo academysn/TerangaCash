@@ -1,0 +1,151 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>omoney</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">omoney</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content> -->
+
+<!-- <ion-toolbar>
+  <ion-button fill="clear" size="small" slot="start">
+    <div class="circle-icon">
+      <ion-icon name="menu-outline"></ion-icon>
+    </div>
+  </ion-button>
+  <ion-title>784720536</ion-title>
+  <ion-buttons slot="end">
+    <ion-button class="btn-white">
+      <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+    </ion-button>
+    <ion-button class="btn-white">
+      <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar> -->
+
+<app-explore-container></app-explore-container>
+
+<ion-content id="reload">
+  <div class="welcome-text">
+    <h2>Mon compte Orange Money</h2>
+  </div>
+
+  <ion-card class="main-card">
+    <ion-grid>
+      <ion-row class="argent">
+        <ion-col size="12">
+          <ion-row>
+            <ion-col size="12">
+              <ion-button fill="clear" expand="block" class="grouped-card btn" (click)="toggleSalaire()">
+                <div class="left-section">
+                  <ion-button class="btn" fill="clear" size="small"><ion-icon name="swap-vertical-outline"></ion-icon></ion-button>
+                </div>
+                <div class="right-section">
+                  <ion-button class="btn" fill="clear" size="small"><ion-icon name="eye-off-outline"></ion-icon></ion-button>
+                  <ion-button class="btn" fill="clear" size="small"><ion-icon name="caret-down-outline"></ion-icon></ion-button>
+                </div>
+              </ion-button>
+            </ion-col>
+            <ion-col size="12">
+              <div class="card-section">
+                <h3>Principal</h3>
+                <p>- - -</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="salaire hide">
+        <ion-col size="12" class="salaire-content">
+          <div class="card-section">
+            <h3>Salaire</h3>
+            <h4>0 CFA</h4>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="historique">
+        <ion-button fill="clear" expand="block" class="full-width-button" (click)="goToHistorique()">
+          <div class="left-section">
+            <ion-icon name="time-outline"></ion-icon>
+            <h6>Historique Transactions</h6>
+          </div>
+          <div class="right-section">
+            <h6 class="btn">Accéder</h6> <ion-icon class="btn" name="caret-forward-outline"></ion-icon>
+          </div>
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" class="card-button w-200" (click)="goToMacarte()">
+          <div class="">
+            <img class="img" src="assets/images/qr.jpg" alt="QR Code" />
+          </div>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" class="card-button w-200" (click)="goToQrMarchand()">
+          <div class="icon-label">
+            <ion-icon class="sama-color" name="qr-code-outline"></ion-icon>
+            <ion-label>Scanner et payer</ion-label>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="section-title">
+    <h4>Mes favoris</h4>
+    <ion-button fill="clear" id="open-service" size="small" class="customize-button">Personnaliser <ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let servicesFavori of servicesFavoris">
+        <ion-button expand="block" class="card-button color-icon" 
+          [id]="servicesFavori.name === 'Activer ma carte' ? 'open-carte' : null"
+          (click)="handleServiceFavorisAction(servicesFavori)">
+          <div class="icon-label">
+            <ion-icon name="receipt-outline"></ion-icon>
+            <ion-label>{{servicesFavori.name}}</ion-label>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="section-title">
+    <h4>Mes Services</h4>
+    <ion-button fill="clear" size="small" class="customize-button" id="service-toggler" (click)="ToggleService()">
+      <span>Voir tout </span>
+      <ion-icon name="arrow-down-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let service of services">
+        <ion-button expand="block" class="card-button color-icon" 
+          [id]="service.name === 'Activer ma carte' ? 'open-carte' : null"
+          (click)="handleServiceAction(service)">
+          <div class="icon-label">
+            <ion-icon name="receipt-outline"></ion-icon>
+            <ion-label>{{service.name}}</ion-label>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

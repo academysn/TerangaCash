@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border bottom-border">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button fill="clear" size="medium"  (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="selectedFacture">{{ selectedFacture.name }}</ion-title>
+    <ion-title *ngIf="!selectedFacture">Facture non trouvée.</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" *ngIf="selectedFacture">
+        <div class="code-content">
+          <h6>{{ selectedFacture.description}}</h6>
+          <div class="sama-input">
+            <ion-input color="warning" type="number" placeholder="{{ selectedFacture.saisi }}"></ion-input>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="section-title">
+    <h4>Mes favoris</h4>
+    <ion-button fill="clear" size="small" class="customize-button">Voir tous</ion-button>
+  </div>
+  
+</ion-content>
