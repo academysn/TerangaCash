@@ -1,0 +1,7 @@
+{
+  "name": "TerangaCash",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

@@ -1,0 +1,73 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+.no-background{
+    --background: #222;
+}
+
+.card-button {
+    --background: none;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    text-align: center;
+    height: 100px;  
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.w-200{
+    height: 200px;
+}
+
+.w-150{
+    height: 150px;
+}
+
+.card-button ion-icon {
+    margin-bottom: 4px;
+    font-size: 24px;
+    color: #ff9800;
+}
+.card-button img {
+    margin-bottom: 4px;
+}
+  
+.card-button ion-label {
+    font-size: 14px;
+    white-space: normal; /* Permet au texte de passer à la ligne */
+    text-align: center;
+    display: block; /* Assure que le texte prend toute la largeur disponible */
+    word-wrap: break-word; /* Permet de couper les mots si nécessaire */
+}
+
+
+
